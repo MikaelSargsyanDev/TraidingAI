@@ -7,7 +7,7 @@ const configuration = new Configuration({
 });
 
 async function getTweets(twitterPage) {
-  const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
   await page.goto(`https://twitter.com/${twitterPage}`, { waitUntil: 'networkidle2' });
