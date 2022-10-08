@@ -35,7 +35,7 @@ export class TradingService {
 
     try {
       order = await alpaca.createOrder({
-        symbol: symbol, // any valid ticker symbol
+        symbol: symbol,
         qty: quantity,
         side: 'buy',
         type: 'market',

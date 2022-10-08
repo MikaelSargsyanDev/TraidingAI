@@ -11,14 +11,14 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>IA trader</title>
+    <title>AI trader</title>
   </head>
 
   <body>
     <script src="index.js" type="module"></script>
     <div v-scope @vue:mounted="getAccount" class="container">
       <form>
-        <h3>Trader IA</h3>
+        <h3>Trader AI</h3>
         <div class="mb-3">
           <label for="twitterPage" class="form-label">URL page twitter</label>
           <input
@@ -30,8 +30,8 @@
             aria-describedby="twitterPageHelp"
           />
           <div id="twitterPageHelp" class="form-text">
-            L'IA s'appuiyera sur les données de cette page pour recommander des actifs
-            financiers.
+            The AI will use the data on this page to recommend assets
+            finance.
           </div>
         </div>
         <button
@@ -46,13 +46,13 @@
             role="status"
             aria-hidden="true"
           ></span>
-          Lister les actifs
+          List the assets
         </button>
       </form>
       <hr />
       <div class="row">
         <div class="col-6">
-          <h3>Pouvoir d'achat</h3>
+          <h3>Purchasing power</h3>
           <span v-if="account">{{account.buying_power | 'number'}} $</span>
         </div>
 
@@ -60,12 +60,12 @@
           <div id="orderNotification">
             <div v-if="lastOrder">
               <p style="color: green" v-if='lastOrder && lastOrder.status == "accepted"'>
-                Votre ordre d'achat de {{lastOrder.qty}} actions {{lastOrder.symbol}} a
-                été executé avec succès.
+                Your purchase order of {{lastOrder.qty}} actions {{lastOrder.symbol}} a
+                been executed successfully.
               </p>
               <p style="color: red" v-if='lastOrder && lastOrder.status != "accepted"'>
-                Votre ordre d'achat de {{lastOrder.qty}} actions {{lastOrder.symbol}} n'a
-                pas été executé.
+                Your purchase order of {{lastOrder.qty}} actions {{lastOrder.symbol}} didn't
+                not been executed.
               </p>
             </div>
           </div>
@@ -74,7 +74,7 @@
       <hr />
 
       <div class="row">
-        <h3>Actifs financiers recommandés par l'IA</h3>
+        <h3>Financial assets recommended by AI</h3>
         <p class="lead" v-if="phrase">{{phrase}}</p>
 
         <div class="col mb-5" v-for="asset in assets">
@@ -85,7 +85,7 @@
               <p class="card-text">Exchange : {{asset.exchange}}</p>
               <div class="input-group">
                 <button @click="buyStocks(asset)" class="btn btn-primary col-8">
-                  Acheter
+                  Buy
                 </button>
                 <input
                   :id="'input-' + asset.symbol"
